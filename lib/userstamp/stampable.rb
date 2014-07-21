@@ -78,7 +78,7 @@ module Ddb #:nodoc:
           self.updater_attribute  = defaults[:updater_attribute].to_sym
           self.deleter_attribute  = defaults[:deleter_attribute].to_sym
 
-          unless defined? creator
+          unless name == 'ActiveRecord::Base'
             class_eval do
               belongs_to :creator, :class_name => self.stamper_class_name.to_s.singularize.camelize,
                                    :foreign_key => self.creator_attribute
